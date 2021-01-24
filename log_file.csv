@@ -171,3 +171,33 @@
                   ,sr_value
                   ,record_date
                 ) VALUES ('FR-00001-19/07/2018',1,'12','2018-07-20')
+2021-01-24 11:40:40,X4YH35432X,purchase_model,insert_opening,1064insert into result_master (
+                  ,draw_master_id
+                  ,result_value
+                  ,game_date
+                ) VALUES (NULL,1,NULL,'--')
+2021-01-24 11:42:05,0A234Y000Y,purchase_model,insert_opening,1064insert into result_master (
+                  ,draw_master_id
+                  ,result_value
+                  ,game_date
+                ) VALUES ('2',1,'6','2021-01-24')
+2021-01-24 11:43:47,82A0Y0XHYA,purchase_model,insert_opening,1064insert into result_master (
+                  ,draw_master_id
+                  ,result_value
+                  ,game_date
+                ) VALUES ('3','4','2021-01-24')
+2021-01-24 11:44:24,A967A9H8Y2,purchase_model,insert_opening,1064insert into result_master (
+                  ,draw_master_id
+                  ,result_value
+                  ,game_date
+                ) VALUES ('4','5','2021-01-24')
+2021-01-24 11:59:43,0Y616AXYA7,purchase_model,insert_opening,1062insert into result_master (
+                  draw_master_id
+                  ,result_value
+                  ,game_date
+                ) VALUES ('3','9','2021-01-24')
+2021-01-25 12:10:51,9507YXH66Y,purchase_model,insert_opening,1062insert into result_master (
+                  draw_master_id
+                  ,result_value
+                  ,game_date
+                ) VALUES ('7','3','2021-01-25')

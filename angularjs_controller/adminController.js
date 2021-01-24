@@ -150,20 +150,21 @@ app.controller("adminCtrl", function ($scope,$http,$filter,$rootScope,dateFilter
    
     //$scope.$watch('theclock', $scope.enableSubmitButtonByDrawTime, true);
 
-    $scope.saveFirstRecord=function(frMaster){
-    	var frLnth=frMaster.fr_value.length;
-    	if(frLnth>1){
+    $scope.saveFirstRecord=function(resultSet){
+        console.log(resultSet);
+    	var inputLength=resultSet.fr_value.length;
+    	if(inputLength>0){
 	        var request = $http({
 	            method: "post",
 	            url: site_url+"/Admin/save_fr_value",
 	            data: {
-	                frMaster: frMaster
+	                data: resultSet
 	            }
 	            ,headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
 			 }).then(function(response){
 		            $scope.frDatabaseReport=response.data.records;
 		             if($scope.frDatabaseReport.success==1){
-		                alert("Fr input successful");
+		                alert("Result added successful");
 		            }
 		            var temp={};
 		            temp.fr_value=frMaster.fr_value/1;
@@ -171,9 +172,9 @@ app.controller("adminCtrl", function ($scope,$http,$filter,$rootScope,dateFilter
 		            $scope.frRecordList=angular.copy(temp);
 		            $scope.frButton=false;           
 		        });
-			}else{
-				alert('Input is not valid');
-			}
+        }else{
+            alert('Input is not valid');
+        }
 
     };
 
@@ -223,10 +224,10 @@ app.controller("adminCtrl", function ($scope,$http,$filter,$rootScope,dateFilter
 	};
 	
 	$scope.showFrValueToday();
-	$interval(function () {
-        $scope.showFrValueToday();
+	// $interval(function () {
+    //     $scope.showFrValueToday();
 
-    },10000);
+    // },10000);
 	
 	//EDIT THE LAST FR-VALUE//
 	
@@ -290,10 +291,10 @@ app.controller("adminCtrl", function ($scope,$http,$filter,$rootScope,dateFilter
         });	
 	};
 	$scope.showSrValueToday();
-	$interval(function () {
-        $scope.showSrValueToday();
+	// $interval(function () {
+    //     $scope.showSrValueToday();
 
-    },1000);
+    // },1000);
 	
 	$scope.editLastSrValue=function(){
 		$scope.showSrValueToday();

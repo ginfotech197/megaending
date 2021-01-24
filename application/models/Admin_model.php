@@ -21,11 +21,11 @@ class admin_model extends CI_Model {
             $this->db->trans_start();
             //insert into maxtable
             $sql="insert into maxtable (subject_name, current_value,prefix)
-            	values('first_record',1,'FR')
+            	values('daily_result',1,'')
 				on duplicate key UPDATE id=last_insert_id(id), current_value=current_value+1";
             $result = $this->db->query($sql, array());
             if($result==FALSE){
-                throw new Exception('Increasing Maxtable for bill_master');
+                throw new Exception('Increasing Maxtable for result');
             }
 
             //getting from maxtable
@@ -34,22 +34,20 @@ class admin_model extends CI_Model {
             if($result==FALSE){
                 throw new Exception('error getting maxtable');
             }
-            $draw_details_id=$result->row()->prefix.'-'.leading_zeroes($result->row()->current_value,4).'-'.$set_date;
-            $return_array['draw_details_id']=$draw_details_id;
 
 
             //        adding New Bill Master
-            $sql="insert into draw_details (
-                   draw_details_id
-                  ,draw_master_id
-                  ,fr_value
-                  ,record_date
-                ) VALUES (?,1,?,?)";
+            $sql="insert into result_master (
+                  draw_master_id
+                  ,result_value
+                  ,game_date
+                ) VALUES (?,?,?)";
             $result=$this->db->query($sql,array(
-                $draw_details_id
+                $frMaster->time
                 ,$frMaster->fr_value
                 ,to_sql_date($frMaster->record_date)
             ));
+
             $return_array['dberror']=$this->db->error();
 
             if($result==FALSE){

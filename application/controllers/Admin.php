@@ -59,9 +59,6 @@ class Admin extends CI_Controller {
                     <li class="nav-item">
                         <a class="nav-link " data-toggle="tab" href="#" role="tab" ng-style="tab==1 && selectedTab" ng-click="setTab(1)"> F/R</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#" role="tab" ng-style="tab==2 && selectedTab" ng-click="setTab(2)"> S/R</a>
-                    </li>
 
                 </ul>
                 <!-- Tab panels -->
@@ -75,18 +72,26 @@ class Admin extends CI_Controller {
                                     <div class="col-8 bg-gray-3">
                                         <div class="d-flex col-12 mt-1 pl-0">
                                             <label  class="col-4">Date</label>
-                                            <div class="col-8">
+                                            <div class="col-8" ng-if="frMaster">
                                                 <span ng-bind="frMaster.record_date+ '  ('+first_record.start_time+''+first_record.meridiem+')'"></span>
                                             </div>
-<!--                                            <div class="col-3">
-                                                <span ng-bind="first_record.start_time"></span>
-                                            </div>-->
+                                        </div>
+
+                                        <div class="d-flex col-12 mt-1 pl-0">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">Time</span>
+                                            </div>
+                                            <select required  data-ng-model="frMaster.time">
+                                                <option ng-repeat="x in drawTimeList" value="{{x.id}}">
+                                                {{x.start_time | limitTo:5}}
+                                                </option>
+                                            </select>
                                         </div>
                                         
-                                           <div class="d-flex col-12 mt-1 pl-0">
+                                        <div class="d-flex col-12 mt-1 pl-0">
                                             <label class="col-4">Last Input:</label>
                                             <div class="col-4">
-                                               <!-- <span ng-bind="frRecordList.fr_value"></span>-->
+                                                <!-- <span ng-bind="frRecordList.fr_value"></span>-->
                                                 <span ng-bind="frRecordList.fr_value>=0 ?frRecordList.fr_value<10? '0'+frRecordList.fr_value : frRecordList.fr_value : ''"></span>
                                                 
                                             </div>
@@ -94,9 +99,9 @@ class Admin extends CI_Controller {
                                         </div>
 
                                         <div class="d-flex col-12 mt-1 pl-0">
-                                            <label class="col-4">F/R Value</label>
+                                            <label class="col-4">Result</label>
                                             <div class="col-5">
-                                                <input type="text" class="textinput textInput form-control" my-maxlength="2" ng-model="frMaster.fr_value" />
+                                                <input type="text" numbers-only class="textinput textInput form-control" my-maxlength="1" ng-model="frMaster.fr_value" />
                                             </div>
                                         </div>
                                         <div class="d-flex col-12 mt-1 mb-1 pl-0">
@@ -121,62 +126,6 @@ class Admin extends CI_Controller {
 
                         </div> <!--//End of my tab1//-->
                     </div>
-                    <div ng-show="isSet(2)">
-                        <div id="my-tab-2">
-                            <form name="purchaseForm" class="form-horizontal" id="purchaseForm">
-                                <div class="row d-flex col-12 bg-gray-5">
-                                <div class="col-2 bg-gray-2"></div>
-                                    <div class="col-8 bg-gray-4">
-                                        <div class="d-flex col-12 mt-1 pl-0">
-                                            <label  class="col-4">Date</label>
-                                            <div class="col-8">
-                                                <span ng-bind="srMaster.record_date+ '  ('+second_record.start_time+''+second_record.meridiem+')'"></span>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="d-flex col-12 mt-1 pl-0">
-                                            <label class="col-4">Last Input:</label>
-                                            <div class="col-4">
-                                                <!--<span ng-bind="srRecordList.sr_value"></span>-->
-                                                <span ng-bind="srRecordList.sr_value>=0 ?srRecordList.sr_value<10? '0'+srRecordList.sr_value : srRecordList.sr_value : ''"></span>
-                                                
-                                            </div>
-                                            <div class="col-2" ng-show="!srButton"><a href="#" ng-click="editLastSrValue()"><i class="fas fa-edit"></i></a></div>
-                                        </div>
-
-                                        <div class="d-flex col-12 mt-1 pl-0">
-                                            <label class="col-4">S/R Value </label>
-                                            <div class="col-5">
-                                                <input type="text" class="textinput textInput form-control" my-maxlength="2" ng-model="srMaster.sr_value" />
-                                            </div>
-                                        </div>
-                                        <div class="d-flex col-12 mt-1 mb-1 pl-0">
-                                            <div class="row col-10 mt-1"></div>
-                                            <div class="row col-4 mt-1">
-                                                <input type="button" class="btn btn-primary" value="Save" ng-click="saveSecondRecord(srMaster)" ng-hide="!srButton">
-                                                <input type="button" class="btn btn-primary" value="Update" ng-click="updateSrValue(srMaster.sr_value)" ng-show="isUpdateableSr">
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-2 bg-gray-2"></div>
-                                </div>
-                            </form>
-                            <div class="row d-flex col-12">
-                                <div class="col-4 mt-1">
-                                   
-                                  
-                                    <!--<pre>srMaster={{srMaster | json}}</pre>-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div ng-show="isSet(3)">
-                        <div id="my-tab-3">
-                            <div id="my-tab-3"></div>
-
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -191,7 +140,7 @@ class Admin extends CI_Controller {
 
     function save_fr_value(){
         $post_data =json_decode(file_get_contents("php://input"), true);
-        $result=$this->Admin_model->insert_fr_value((object)$post_data['frMaster']);
+        $result=$this->Admin_model->insert_fr_value((object)$post_data['data']);
         $report_array['records']=$result;
         echo json_encode($report_array,JSON_NUMERIC_CHECK);
     }

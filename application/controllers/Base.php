@@ -218,7 +218,7 @@ class Base extends CI_Controller {
                 <table class="table table-bordered my-table mt-1">
                     <thead>
                     <tr>
-                        <th colspan="10">Teer Result | Sikkim Teer | Teer Today </th>
+                        <th colspan="10">SHILLONG ENDING RESULT</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -264,38 +264,13 @@ class Base extends CI_Controller {
                 </table>
 
 
-                <!-- <table class="table" style="border: 1px solid black ">
-                    <tr>
-                        <td class="td" style="border: 1px solid black ">1</td>
-                        <td class="td" style="border: 1px solid black ">2</td>
-                        <td class="td" style="border: 1px solid black ">3</td>
-                        <td class="td" style="border: 1px solid black ">4</td>
-                        <td class="td" style="border: 1px solid black ">5</td>
-                        <td class="td" style="border: 1px solid black ">6</td>
-                        <td class="td" style="border: 1px solid black ">7</td>
-                        <td class="td" style="border: 1px solid black ">8</td>
-                        <td class="td" style="border: 1px solid black ">9</td>
-                        <td class="td" style="border: 1px solid black ">10</td>
-                    </tr>
-                    <tr>
-                        <td class="tr" style="border: 1px solid black; background-color: white; ">150</td>
-                        <td class="tr" style="border: 1px solid black; background-color: white; ">504</td>
-                        <td class="tr" style="border: 1px solid black; background-color: white;">329</td>
-                        <td class="tr" style="border: 1px solid black ; background-color: white;">546</td>
-                        <td class="tr" style="border: 1px solid black; background-color: white; ">**</td>
-                        <td class="tr" style="border: 1px solid black ; background-color: white;">**</td>
-                        <td class="tr" style="border: 1px solid black; background-color: white; ">**</td>
-                        <td class="tr" style="border: 1px solid black; background-color: white; ">**</td>
-                        <td class="tr" style="border: 1px solid black ; background-color: white;">**</td>
-                        <td class="tr" style="border: 1px solid black ; background-color: white;">**</td>
-                    </tr>
-                </table> -->
+                
             </div>
         </div>
 
         <div class="row d-flex bg-dark text-center">
             <div class="bg-dark text-white col-12 text-center" style="text-shadow: 2px 2px 5px red">
-                <h1> Teer Result | Sikkim Teer | Teer Today </h1>
+                <h1>SHILLONG ENDING RESULT</h1>
 
             </div>
         </div>
