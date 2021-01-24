@@ -76,14 +76,16 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 
-    // 'hostname' => 'localhost',
-    // 'username' => 'gamepane_nightteer_root',
-    // 'password' => '@lAI0fJGl!o)',
-    // 'database' => 'gamepane_nightteer_db',
+	'database' => 'gamepane_megaending_db',
 	'hostname' => 'localhost',
+	// server settings
+    // 'username' => 'gamepane_megaending_root',
+    // 'password' => 'UM$R94u1pkTq',	
+	
+	// local settings
 	'username' => 'root',
 	'password' => 'sukantahui',
-	'database' => 'teer_db',
+
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
