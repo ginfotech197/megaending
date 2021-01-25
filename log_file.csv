@@ -201,3 +201,18 @@
                   ,result_value
                   ,game_date
                 ) VALUES ('7','3','2021-01-25')
+2021-01-26 12:12:15,03706X2822,purchase_model,insert_opening,1062insert into result_master (
+                  draw_master_id
+                  ,result_value
+                  ,game_date
+                ) VALUES ('1','1','2021-01-26')
+2021-01-26 12:12:55,35HY0942H2,purchase_model,insert_opening,1062insert into result_master (
+                  draw_master_id
+                  ,result_value
+                  ,game_date
+                ) VALUES ('3','3','2021-01-26')
+2021-01-26 12:13:05,55A95209Y1,purchase_model,insert_opening,1062insert into result_master (
+                  draw_master_id
+                  ,result_value
+                  ,game_date
+                ) VALUES ('4','4','2021-01-26')

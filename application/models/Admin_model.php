@@ -8,7 +8,7 @@ class admin_model extends CI_Model {
 
 //
     function select_all_draw_time(){
-        $sql="select * from draw_master";
+        $sql="select * from draw_master order by id";
         $result = $this->db->query($sql,array());
         return $result;
     }

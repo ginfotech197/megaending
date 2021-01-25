@@ -19,11 +19,30 @@ app.controller("mainCtrl", function ($scope,$http,$filter,md5,$window,$interval)
             ,headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         }).then(function(response){
             $scope.drawTimeList=response.data;
-            $scope.first_record=alasql('select * from ? where status= "first_record"',[$scope.drawTimeList])[0];
-            $scope.second_record=alasql('select * from ? where status= "second_record"',[$scope.drawTimeList])[0];
+            // $scope.first_record=alasql('select * from ? where status= "first_record"',[$scope.drawTimeList])[0];
+            // $scope.second_record=alasql('select * from ? where status= "second_record"',[$scope.drawTimeList])[0];
 
         });
     };
+
+    $scope.getTodayTeerResult=function () {
+        var request = $http({
+            method: "post",
+            url: site_url+"/Base/get_today_teer_result",
+            data: {}
+            ,headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        }).then(function(response){
+            $scope.todayResultList=response.data;
+            
+
+        });
+    };
+
+    $scope.getTodayTeerResult();
+
+
+
+
     $scope.getDrawMaster();
 
     $scope.getFrValue=function () {

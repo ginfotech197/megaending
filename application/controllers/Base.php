@@ -223,39 +223,28 @@ class Base extends CI_Controller {
                     </thead>
                     <tbody>
                         <tr class="bg-warning">
-                            <td>9:15</td>
-                            <td>9:15</td>
-                            <td>9:15</td>
-                            <td>9:15</td>
-                            <td>9:15</td>
-                            <td>9:15</td>
-                            <td>9:15</td>
-                            <td>9:15</td>
-                            <td>9:15</td>
-                            <td>9:15</td>
+                            <td ng-repeat="x in drawTimeList">{{x.start_time | limitTo:5}}</td>
                         </tr>
                         <tr>
-                            <td>
-                            {{databaseChangesReportValueFr.fr!=null ? databaseChangesReportValueFr.fr<10? '0' + databaseChangesReportValueFr.fr : databaseChangesReportValueFr.fr : 'XX'}}
-                            </td>
+                            <td>{{'X'+ todayResultList.first}}</td>
 
-                            <td> {{databaseChangesReportValueSr.sr!=null ? databaseChangesReportValueSr.sr<10? '0'+ databaseChangesReportValueSr.sr : databaseChangesReportValueSr.sr : 'XX'}}</td>
+                            <td> {{'X'+ todayResultList.second}}</td>
                             
-                            <td>{{databaseChangesReportValueFr.fr!=null ? databaseChangesReportValueFr.fr<10? '0' + databaseChangesReportValueFr.fr : databaseChangesReportValueFr.fr : 'XX'}}</td>
+                            <td>{{'X'+ todayResultList.third}}</td>
 
-                            <td> {{databaseChangesReportValueSr.sr!=null ? databaseChangesReportValueSr.sr<10? '0'+ databaseChangesReportValueSr.sr : databaseChangesReportValueSr.sr : 'XX'}}</td>
+                            <td> {{'X'+ todayResultList.fourth}}</td>
                             
-                            <td> {{databaseChangesReportValueSr.sr!=null ? databaseChangesReportValueSr.sr<10? '0'+ databaseChangesReportValueSr.sr : databaseChangesReportValueSr.sr : 'XX'}}</td>
+                            <td> {{'X'+ todayResultList.fifth}}</td>
                             
-                            <td> {{databaseChangesReportValueSr.sr!=null ? databaseChangesReportValueSr.sr<10? '0'+ databaseChangesReportValueSr.sr : databaseChangesReportValueSr.sr : 'XX'}}</td>
+                            <td> {{'X'+ todayResultList.sixth}}</td>
                             
-                            <td> {{databaseChangesReportValueSr.sr!=null ? databaseChangesReportValueSr.sr<10? '0'+ databaseChangesReportValueSr.sr : databaseChangesReportValueSr.sr : 'XX'}}</td>
+                            <td> {{'X'+ todayResultList.seventh}}</td>
                             
-                            <td> {{databaseChangesReportValueSr.sr!=null ? databaseChangesReportValueSr.sr<10? '0'+ databaseChangesReportValueSr.sr : databaseChangesReportValueSr.sr : 'XX'}}</td>
+                            <td> {{'X'+ todayResultList.eighth}}</td>
                             
-                            <td> {{databaseChangesReportValueSr.sr!=null ? databaseChangesReportValueSr.sr<10? '0'+ databaseChangesReportValueSr.sr : databaseChangesReportValueSr.sr : 'XX'}}</td>
+                            <td> {{'X'+ todayResultList.ninth}}</td>
                             
-                            <td> {{databaseChangesReportValueSr.sr!=null ? databaseChangesReportValueSr.sr<10? '0'+ databaseChangesReportValueSr.sr : databaseChangesReportValueSr.sr : 'XX'}}</td>
+                            <td> {{'X'+ todayResultList.tenth}}</td>
 
 
                         </tr>
@@ -507,7 +496,11 @@ class Base extends CI_Controller {
 
     function get_draw_time_list(){
         $result=$this->main_view_model->select_all_draw_time()->result_array();
-//        $report_array['records']=$result;
+        echo json_encode($result,JSON_NUMERIC_CHECK);
+    }
+
+    function get_today_teer_result(){
+        $result=$this->main_view_model->select_today_result();
         echo json_encode($result,JSON_NUMERIC_CHECK);
     }
 }
