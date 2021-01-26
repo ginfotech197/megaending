@@ -6,6 +6,7 @@
 <script src="angularjs/autocomplete.js"></script>
 <script src="angularjs/angular-md5.js"></script>
 <script src="angularjs/angular-timer.min.js"></script>
+<script src ="node_modules/moment/min/moment.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
