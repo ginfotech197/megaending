@@ -229,6 +229,7 @@ class Base extends CI_Controller {
                             <td ng-repeat="x in drawTimeList" style="font-size: larger; font-weight: bold;">{{x.start_time | limitTo:5}}</td>
                         </tr>
                         <tr>
+<<<<<<< HEAD
                             <td class="bg-info">{{'X'+ todayResultList.first}}</td>
 
                             <td class="bg-info"> {{'X'+ todayResultList.second}}</td>
@@ -248,6 +249,27 @@ class Base extends CI_Controller {
                             <td class="bg-info"> {{'X'+ todayResultList.ninth}}</td>
                             
                             <td class="bg-info"> {{'X'+ todayResultList.tenth}}</td>
+=======
+                            <td><b class="text-weight-bold">X</b>{{todayResultList.first || 'X'}}</td>
+
+                            <td><b class="text-weight-bold">X</b>{{todayResultList.second || 'X'}}</td>
+                            
+                            <td><b class="text-weight-bold">X</b>{{todayResultList.third || 'X'}}</td>
+
+                            <td> <b class="text-weight-bold">X</b>{{todayResultList.fourth || 'X'}}</td>
+                            
+                            <td> <b class="text-weight-bold">X</b>{{todayResultList.fifth || 'X'}}</td>
+                            
+                            <td> <b class="text-weight-bold">X</b>{{todayResultList.sixth || 'X'}}</td>
+                            
+                            <td> <b class="text-weight-bold">X</b>{{todayResultList.seventh || 'X'}}</td>
+                            
+                            <td> <b class="text-weight-bold">X</b>{{todayResultList.eighth || 'X'}}</td>
+                            
+                            <td> <b class="text-weight-bold">X</b>{{todayResultList.ninth || 'X'}}</td>
+                            
+                            <td> <b class="text-weight-bold">X</b>{{todayResultList.tenth || 'X'}}</td>
+>>>>>>> 2de4fcc810e303bbf6b8b801caf5c3a6c4c620f6
 
 
                         </tr>
@@ -283,18 +305,34 @@ class Base extends CI_Controller {
             <div class="col-10 text-center table-responsive bg-gray-2">
                 <table class="table table-bordered my-table-result mt-1">
                     <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>FR</th>
-                        <th>SR</th>
-                    </tr>
+                        <tr ng-if="drawTimeList.length">
+                            <th colspan="4">Date</th>
+                            <td ng-repeat="x in drawTimeList">{{x.start_time | limitTo:5}}</td>
+                        </tr>
                     </thead>
-                    <tbody ng-repeat="x in previousRecordsList">
-                    <tr>
-                        <td>{{x.record_time}}</td>
-                        <td>{{x.fr_value!=null ? x.fr_value<10? '0'+x.fr_value : x.fr_value : 'XX'}}</td>
-                        <td>{{x.sr_value!=null? x.sr_value<10? '0'+x.sr_value : x.sr_value : 'XX'}}</td>
-                    </tr>
+                    <tbody>
+                        <tr ng-repeat="x in previousRecordsList">
+                            <td colspan="4">{{x.game_date}}</td>
+                            <td><b class="text-weight-bold">X</b>{{x.first || 'X'}}</td>
+
+                            <td><b class="text-weight-bold">X</b>{{x.second || 'X'}}</td>
+                            
+                            <td><b class="text-weight-bold">X</b>{{x.third || 'X'}}</td>
+
+                            <td> <b class="text-weight-bold">X</b>{{x.fourth || 'X'}}</td>
+                            
+                            <td> <b class="text-weight-bold">X</b>{{x.fifth || 'X'}}</td>
+                            
+                            <td> <b class="text-weight-bold">X</b>{{x.sixth || 'X'}}</td>
+                            
+                            <td> <b class="text-weight-bold">X</b>{{x.seventh || 'X'}}</td>
+                            
+                            <td> <b class="text-weight-bold">X</b>{{x.eighth || 'X'}}</td>
+                            
+                            <td> <b class="text-weight-bold">X</b>{{x.ninth || 'X'}}</td>
+                            
+                            <td> <b class="text-weight-bold">X</b>{{x.tenth || 'X'}}</td>
+                        </tr>
                     </tbody>
                 </table>
                 

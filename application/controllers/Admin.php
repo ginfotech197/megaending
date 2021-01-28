@@ -100,7 +100,7 @@ class Admin extends CI_Controller {
 
                                         <div class="d-flex col-12 mt-1 pl-0">
                                             <label class="col-4">Result</label>
-                                            <div class="col-5">
+                                            <div class="col-8">
                                                 <input type="text" numbers-only class="textinput textInput form-control" my-maxlength="1" ng-model="frMaster.fr_value" />
                                             </div>
                                         </div>
