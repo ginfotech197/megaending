@@ -187,6 +187,9 @@ class Base extends CI_Controller {
         font-weight: bold;
         text-align: center;
     }
+    .result{
+        /* background-color: purple; */
+    }
 
         </style>
 
@@ -211,11 +214,11 @@ class Base extends CI_Controller {
             <div class="col-10"></div>
 
         </div>
-        <div class="row text-danger" style="background-color: red;"><marquee style="color: yellow;"><h1>WELCOME TO SIKKIM TEER RESULTS</h1></marquee></div>
+        <div class="row text-danger" style="background-color: red;"><marquee style="color: yellow;"><h1>WELCOME TO SHILLONG TEER RESULTS</h1></marquee></div>
         <div class="row d-flex" style="background-color: #22a794;">
-            <div class="col-12 text-center table-responsive">
+            <div class="col-12 text-center">
                 <p class="text-center"><?php echo get_current_date();?></p>
-                <table class="table table-bordered my-table mt-1">
+                <table class="table table-bordered my-table mt-1 table-responsive">
                     <thead>
                     <tr>
                         <th colspan="10">SHILLONG ENDING RESULT</th>
@@ -223,28 +226,28 @@ class Base extends CI_Controller {
                     </thead>
                     <tbody>
                         <tr class="bg-warning">
-                            <td ng-repeat="x in drawTimeList">{{x.start_time | limitTo:5}}</td>
+                            <td ng-repeat="x in drawTimeList" style="font-size: larger; font-weight: bold;">{{x.start_time | limitTo:5}}</td>
                         </tr>
                         <tr>
-                            <td>{{'X'+ todayResultList.first}}</td>
+                            <td class="bg-info">{{'X'+ todayResultList.first}}</td>
 
-                            <td> {{'X'+ todayResultList.second}}</td>
+                            <td class="bg-info"> {{'X'+ todayResultList.second}}</td>
                             
-                            <td>{{'X'+ todayResultList.third}}</td>
+                            <td class="bg-info">{{'X'+ todayResultList.third}}</td>
 
-                            <td> {{'X'+ todayResultList.fourth}}</td>
+                            <td class="bg-info"> {{'X'+ todayResultList.fourth}}</td>
                             
-                            <td> {{'X'+ todayResultList.fifth}}</td>
+                            <td class="bg-info"> {{'X'+ todayResultList.fifth}}</td>
                             
-                            <td> {{'X'+ todayResultList.sixth}}</td>
+                            <td class="bg-info"> {{'X'+ todayResultList.sixth}}</td>
                             
-                            <td> {{'X'+ todayResultList.seventh}}</td>
+                            <td class="bg-info"> {{'X'+ todayResultList.seventh}}</td>
                             
-                            <td> {{'X'+ todayResultList.eighth}}</td>
+                            <td class="bg-info"> {{'X'+ todayResultList.eighth}}</td>
                             
-                            <td> {{'X'+ todayResultList.ninth}}</td>
+                            <td class="bg-info"> {{'X'+ todayResultList.ninth}}</td>
                             
-                            <td> {{'X'+ todayResultList.tenth}}</td>
+                            <td class="bg-info"> {{'X'+ todayResultList.tenth}}</td>
 
 
                         </tr>
