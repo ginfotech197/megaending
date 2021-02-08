@@ -40,6 +40,7 @@ class Admin extends CI_Controller {
                     <!-- Brand -->
 
                     <a class="navbar-brand pull-right" href="#" ng-click="logoutCpanel()">Logout</a>
+                    <a class="" href="#" type="button" data-toggle="modal" data-target="#reset-modal">Reset password</a>
 
                     <!-- Links -->
                     <ul class="navbar-nav">
@@ -81,7 +82,7 @@ class Admin extends CI_Controller {
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1">Time</span>
                                             </div>
-                                            <select required  data-ng-model="frMaster.time">
+                                            <select required  data-ng-model="frMaster.time" ng-change="gettResultByDrawTime(frMaster.time)">
                                                 <option ng-repeat="x in drawTimeList" value="{{x.id}}">
                                                 {{x.start_time | limitTo:5}}
                                                 </option>
@@ -117,17 +118,38 @@ class Admin extends CI_Controller {
                                     <div class="col-2 bg-gray-2"></div>
                                 </div>
                             </form>
-                            <div class="row d-flex col-12">
-                                <div class="col-4 mt-1">
-                            	
-                            	
-                                </div>
-                            </div>
 
                         </div> <!--//End of my tab1//-->
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- The modal -->
+        <div class="modal fade" id="reset-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info">
+                            <h5 class="modal-title" id="modalLabel">Reset Password</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <form name="resetpsw_form">
+                                        
+                                        <div class="form-group">
+                                        <label for="pwd">Password:</label>
+                                        <input type="password" class="form-control" ng-model="resetData.user_password"  placeholder="Enter password" required>
+                                        </div>
+                                        <button type="submit" ng-click="resetPassword(resetData)"  ng-disabled="resetpsw_form.$invalid" class="btn btn-primary">Reset</button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
         </div>
         <?php
     }
@@ -165,7 +187,7 @@ class Admin extends CI_Controller {
         echo json_encode($report_array,JSON_NUMERIC_CHECK);
     }
     
-      function get_sr_value_for_edit(){
+    function get_sr_value_for_edit(){
         $result=$this->Admin_model->select_sr_value();
        //$report_array['records']=$result;
         echo json_encode($result,JSON_NUMERIC_CHECK);
@@ -174,6 +196,13 @@ class Admin extends CI_Controller {
     function update_sr_record(){
         $post_data =json_decode(file_get_contents("php://input"), true);
         $result=$this->Admin_model->update_sr_value($post_data['srValue'],$post_data['srId']);
+        $report_array['records']=$result;
+        echo json_encode($report_array,JSON_NUMERIC_CHECK);
+    }
+
+    function getResultBydrawTime(){
+        $post_data =json_decode(file_get_contents("php://input"), true);
+        $result=$this->Admin_model->selectResultByDrawTime($post_data['drawId']);
         $report_array['records']=$result;
         echo json_encode($report_array,JSON_NUMERIC_CHECK);
     }
@@ -189,6 +218,15 @@ class Admin extends CI_Controller {
         );
         $this->session->set_userdata($newdata);
         echo json_encode($newdata,JSON_NUMERIC_CHECK);
+    }
+
+    function reset_admin_password(){
+        $personId=$this->session->userdata('person_id');
+        $post_data =json_decode(file_get_contents("php://input"), true);
+        $result=$this->Admin_model->update_admin_password((object)$post_data['masterData'],$personId);
+        $report_array['records']=$result;
+        echo json_encode($report_array,JSON_NUMERIC_CHECK);
+
     }
 }
 ?>

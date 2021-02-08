@@ -100,7 +100,7 @@ app.controller("adminCtrl", function ($scope,$http,$filter,$rootScope,dateFilter
     },1000);
 
     $scope.frMaster={
-        fr_value: ''
+        fr_value: '',time:''
     };
     $scope.srMaster={
         sr_value: ''
@@ -136,6 +136,22 @@ app.controller("adminCtrl", function ($scope,$http,$filter,$rootScope,dateFilter
         });
     };
     $scope.getDrawMaster();
+
+
+    $scope.gettResultByDrawTime=function (drawId) {
+        var request = $http({
+            method: "post",
+            url: site_url+"/Admin/getResultBydrawTime",
+            data: {drawId: drawId}
+            ,headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        }).then(function(response){
+            var result= response.data.records.result_value;
+            if(result>0){
+                $scope.frMaster.fr_value = result;
+            }
+
+        });
+    };
 
    /* $scope.enableSubmitButtonByDrawTime=function () {
         if($scope.theclock==$scope.first_record.start_time && $scope.am_pm==$scope.first_record.meridiem){
@@ -350,7 +366,28 @@ app.controller("adminCtrl", function ($scope,$http,$filter,$rootScope,dateFilter
         });
     };
 
-	
+    $scope.resetData={};
+    $scope.resetPassword=function(resetData){
+        //    console.log(resetData);
+        var request = $http({
+            method: "post",
+            url: site_url+"/Admin/reset_admin_password",
+            data: {
+                masterData: resetData
+            }
+            ,headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        }).then(function(response){
+            $scope.resetRecord=response.data.records;
+            if($scope.resetRecord.success==1){
+                alert('Password reset successfully');
+                $(".modal-backdrop").hide();
+                $('#reset-modal').modal('hide');
+                $scope.logoutCpanel();
+             
+                
+            }
+        });       
+    };
 
 
 

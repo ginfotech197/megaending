@@ -215,7 +215,7 @@ class Base extends CI_Controller {
 
         </div>
         <div class="row text-danger" style="background-color: red;"><marquee style="color: yellow;"><h1>WELCOME TO SHILLONG TEER RESULTS</h1></marquee></div>
-        <div class="row d-flex" style="background-color: #22a794;">
+        <div class="d-flex justify-content-center" style="background-color: #22a794;">
             <div class="col-12 text-center">
                 <p class="text-center"><?php echo get_current_date();?></p>
                 <table class="table table-bordered my-table mt-1 table-responsive">
@@ -229,27 +229,6 @@ class Base extends CI_Controller {
                             <td ng-repeat="x in drawTimeList" style="font-size: larger; font-weight: bold;">{{x.start_time | limitTo:5}}</td>
                         </tr>
                         <tr>
-<<<<<<< HEAD
-                            <td class="bg-info">{{'X'+ todayResultList.first}}</td>
-
-                            <td class="bg-info"> {{'X'+ todayResultList.second}}</td>
-                            
-                            <td class="bg-info">{{'X'+ todayResultList.third}}</td>
-
-                            <td class="bg-info"> {{'X'+ todayResultList.fourth}}</td>
-                            
-                            <td class="bg-info"> {{'X'+ todayResultList.fifth}}</td>
-                            
-                            <td class="bg-info"> {{'X'+ todayResultList.sixth}}</td>
-                            
-                            <td class="bg-info"> {{'X'+ todayResultList.seventh}}</td>
-                            
-                            <td class="bg-info"> {{'X'+ todayResultList.eighth}}</td>
-                            
-                            <td class="bg-info"> {{'X'+ todayResultList.ninth}}</td>
-                            
-                            <td class="bg-info"> {{'X'+ todayResultList.tenth}}</td>
-=======
                             <td><b class="text-weight-bold">X</b>{{todayResultList.first || 'X'}}</td>
 
                             <td><b class="text-weight-bold">X</b>{{todayResultList.second || 'X'}}</td>
@@ -269,7 +248,6 @@ class Base extends CI_Controller {
                             <td> <b class="text-weight-bold">X</b>{{todayResultList.ninth || 'X'}}</td>
                             
                             <td> <b class="text-weight-bold">X</b>{{todayResultList.tenth || 'X'}}</td>
->>>>>>> 2de4fcc810e303bbf6b8b801caf5c3a6c4c620f6
 
 
                         </tr>
