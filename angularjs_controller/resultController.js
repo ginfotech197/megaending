@@ -4,7 +4,7 @@ app.controller("resultCtrl", function ($scope,$window,$http) {
         return moment(userDate).format('YYYY-MM-DD');
     };
     $scope.start_date = new Date();
-    $scope.end_date = new Date();;
+    $scope.end_date = new Date();
     
     $scope.getDrawMaster=function () {
         var request = $http({

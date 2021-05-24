@@ -187,9 +187,6 @@ class Base extends CI_Controller {
         font-weight: bold;
         text-align: center;
     }
-    .result{
-        /* background-color: purple; */
-    }
 
         </style>
 
@@ -215,10 +212,10 @@ class Base extends CI_Controller {
 
         </div>
         <div class="row text-danger" style="background-color: red;"><marquee style="color: yellow;"><h1>WELCOME TO SHILLONG TEER RESULTS</h1></marquee></div>
-        <div class="d-flex justify-content-center" style="background-color: #22a794;">
-            <div class="col-12 text-center">
+        <div class="row d-flex" style="background-color: #22a794;">
+            <div class="col-12 text-center table-responsive">
                 <p class="text-center"><?php echo get_current_date();?></p>
-                <table class="table table-bordered my-table mt-1 table-responsive">
+                <table class="table table-bordered my-table mt-1">
                     <thead>
                     <tr>
                         <th colspan="10">SHILLONG ENDING RESULT</th>
@@ -226,28 +223,28 @@ class Base extends CI_Controller {
                     </thead>
                     <tbody>
                         <tr class="bg-warning">
-                            <td ng-repeat="x in drawTimeList" style="font-size: larger; font-weight: bold;">{{x.start_time | limitTo:5}}</td>
+                            <td ng-repeat="x in drawTimeList">{{x.start_time | limitTo:5}}</td>
                         </tr>
                         <tr>
-                            <td><b class="text-weight-bold">X</b>{{todayResultList.first || 'X'}}</td>
+                            <td><b class="text-weight-bold">X</b>{{todayResultList.first>=0? todayResultList.first : 'X'}}</td>
 
-                            <td><b class="text-weight-bold">X</b>{{todayResultList.second || 'X'}}</td>
+                            <td><b class="text-weight-bold">X</b>{{todayResultList.second>=0? todayResultList.second : 'X'}}</td>
                             
-                            <td><b class="text-weight-bold">X</b>{{todayResultList.third || 'X'}}</td>
+                            <td><b class="text-weight-bold">X</b>{{todayResultList.third>=0? todayResultList.third : 'X'}}</td>
 
-                            <td> <b class="text-weight-bold">X</b>{{todayResultList.fourth || 'X'}}</td>
+                            <td> <b class="text-weight-bold">X</b>{{todayResultList.fourth>=0? todayResultList.fourth : 'X'}}</td>
                             
-                            <td> <b class="text-weight-bold">X</b>{{todayResultList.fifth || 'X'}}</td>
+                            <td> <b class="text-weight-bold">X</b>{{todayResultList.fifth>=0? todayResultList.fifth :  'X'}}</td>
                             
-                            <td> <b class="text-weight-bold">X</b>{{todayResultList.sixth || 'X'}}</td>
+                            <td> <b class="text-weight-bold">X</b>{{todayResultList.sixth>=0? todayResultList.sixth :  'X'}}</td>
                             
-                            <td> <b class="text-weight-bold">X</b>{{todayResultList.seventh || 'X'}}</td>
+                            <td> <b class="text-weight-bold">X</b>{{todayResultList.seventh>=0? todayResultList.seventh : 'X'}}</td>
                             
-                            <td> <b class="text-weight-bold">X</b>{{todayResultList.eighth || 'X'}}</td>
+                            <td> <b class="text-weight-bold">X</b>{{todayResultList.eighth>=0? todayResultList.eighth : 'X'}}</td>
                             
-                            <td> <b class="text-weight-bold">X</b>{{todayResultList.ninth || 'X'}}</td>
+                            <td> <b class="text-weight-bold">X</b>{{todayResultList.ninth>=0? todayResultList.ninth : 'X'}}</td>
                             
-                            <td> <b class="text-weight-bold">X</b>{{todayResultList.tenth || 'X'}}</td>
+                            <td> <b class="text-weight-bold">X</b>{{todayResultList.tenth>=0? todayResultList.tenth : 'X'}}</td>
 
 
                         </tr>

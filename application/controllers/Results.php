@@ -45,16 +45,16 @@ class Results extends CI_Controller {
 
 
 
-        <table class="table table-bordered my-table-result mt-1" ng-init="showAllResults()">
+        <table class="table table-bordered my-table-result mt-1 responsive" style="white-space: nowrap" ng-init="showAllResults()">
             <thead>
                 <tr>
-                    <th  colspan="4">Date</th>
+                    <th  colspan="3">Date</th>
                     <th ng-repeat="x in drawTimeList">{{x.start_time | limitTo:5}}</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="x in allResults">
-                    <td  colspan="4">{{x.game_date}}</td>
+                    <td  colspan="3">{{x.game_date}}</td>
                     <td><b class="text-weight-bold">X</b>{{x.first || 'X'}}</td>
 
                     <td><b class="text-weight-bold">X</b>{{x.second || 'X'}}</td>

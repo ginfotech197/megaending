@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0c17cbb-07d7-44d2-81ec-cb047be9dbf5" name="Default" comment="" />
+    <list default="true" id="e0c17cbb-07d7-44d2-81ec-cb047be9dbf5" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angularjs_controller/resultController.js" beforeDir="false" afterPath="$PROJECT_DIR$/angularjs_controller/resultController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Base.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Base.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Results.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Results.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +15,9 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1cdQq9XzPQY7YpuwHgHERJ2KZSm" />
   <component name="ProjectViewState">
@@ -37,6 +45,7 @@
       <workItem from="1532590858818" duration="1557000" />
       <workItem from="1590856184170" duration="16000" />
       <workItem from="1590906687914" duration="7984000" />
+      <workItem from="1621864264884" duration="1775000" />
     </task>
     <servers />
   </component>
@@ -44,17 +53,9 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1590856198214">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1621865042794">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1590856198214" />
-    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1590783184680">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1590783184680" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1590927622630">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1590927622630" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1621865042794" />
   </component>
 </project>
